@@ -1,0 +1,139 @@
+* {
+  	box-sizing: border-box;
+  	margin: 0;
+  	padding: 0;
+}
+body{
+ background-color: #0079BF;
+}/* -------------------navbar--------------- */
+/*boton*/
+.btn {
+  background-color: #4C94BF;
+  border-color: transparent;
+  color:white;
+  display: inline-block;
+  font-weight: 600;
+  padding: 5px 12px;
+}
+.fa-trello{
+  font-size: 17px;
+  padding-right: 4px;
+}
+.fa-trello:hover{
+  color: white;
+}
+/*buscador*/
+.navbar-default {
+  background-color: #276787;
+  border-color: #276787;
+}
+.buscar{
+	background-color: #4C94BF;
+	position: relative;
+	text-align: right;
+	border-radius: 5px;
+  padding: 1px;	
+}
+input{
+	background-color: transparent;
+	border-color: transparent;
+	height: 30px;
+}
+.fa-search{
+	color: white;
+    padding-left: 5px;
+    transform: scaleX(-1);
+}
+.logo-trello{
+    position: absolute;
+    left: 46%;
+    padding: 5px;
+    width: 120px;
+}
+/*---------------section----------*/
+section{
+  padding:50px; 
+}
+.columnaLista{
+  display: inline-block;
+}
+.lista-trello{
+  border-radius: 5px;
+  background-color:#0067A3;
+  padding: 7px;
+  width: 20%;
+  vertical-align: top;
+}
+.span{
+  color:#A9C6D7;
+  display: block;
+  cursor: pointer;
+
+}
+.form-ingreso{
+  border-radius: 5px;
+  background-color:gainsboro;
+  margin: 0px 5px;
+
+}
+.input-form{
+  background-color: #D7D9DB;
+  border-radius: 5px;
+  border: 1px solid #B2B2B3;
+  margin-bottom: 5px;
+  padding: 6px;
+  width: 100%;
+}
+.boton-form{
+  background-color: #5DB449;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  padding: 5px 20px;
+  display: block
+}
+/* title de lista*/
+.titleLista{
+  font-weight: 600;
+ 
+}
+.linkLista{
+  color:gray;
+}
+/* X costado de guardar*/
+.estiloErase{
+    color: lightslategrey;
+    font-size: 22px;
+    position: absolute;
+    left: 170px;
+    top: 168px;
+}
+/*newColumna*/
+.newColumna{
+    display: inline-block;
+}
+.ocultar{
+  display: none;
+}
+.textAreaform{
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #B2B2B3;
+  margin-bottom: 5px;
+  padding: 6px;
+  width: 100%; 
+}
+.tarjetaStyle{
+  width: 100%;
+  padding: 6px;
+  background-color: white;
+  margin:5px 0px;
+}
+.aparece{
+ display: block; 
+}
+
+.newStyletarjeta{
+  border:2px solid black;
+  opacity: 0.3; 
+}
