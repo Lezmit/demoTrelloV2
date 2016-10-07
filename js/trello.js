@@ -11,15 +11,11 @@ var contador = 1;
 function cargarPagina() {	
 	textoSpan.addEventListener("click",formVisible);
 	botonform.addEventListener("click", creandoLista );	
-	/*contenedorLista.addEventListener("dragover",arrastrarSobre);
-	contenedorLista.addEventListener("drop",soltar);
-	contenedorLista.addEventListener("dragenter",entraArrastrar);*/
-
 }
 function formVisible() {
 	textoSpan.style.display="none";
 	formTrello.style.display="block";
-	contenedorLista.classList.add("form-ingreso");
+	contenedorLista.classList.add("form-ingreso","dragdrop");
 	inputTexto.focus();
 }
 function creandoLista(e){
@@ -67,7 +63,6 @@ function crear(){
 	contador++;
 }
 function guardarNewTarjeta(padre,textArea){
-	
 	var nombreTarjeta= document.createElement("div");
 	nombreTarjeta.innerText=textArea.value;
 	padre.insertBefore(nombreTarjeta,padre.lastChild);
@@ -79,36 +74,40 @@ function guardarNewTarjeta(padre,textArea){
 	nombreTarjeta.setAttribute("draggable","true");
 	nombreTarjeta.setAttribute("id","movile"+contador);
 	nombreTarjeta.addEventListener("dragstart", empiezaArrastrar);
-	nombreTarjeta.addEventListener("dragenter", entraArrastrar);
-	nombreTarjeta.addEventListener("dragleave", dejaArrastrar);
 	padre.addEventListener("dragover", arrastrarSobre);
 	padre.addEventListener("drop", soltar);
-	//nombreTarjeta.addEventListener("dragend", terminaArrastrar);
+	nombreTarjeta.addEventListener("dragend", terminaArrastrar);
 }
 
 function crearColumna(nuevaLista, formulario) {
 	var nuevaColumna = document.createElement("div");
-	
-	nuevaColumna.classList.add("columnaLista", "lista-trello","form-ingreso");
+	nuevaColumna.classList.add("columnaLista", "lista-trello","form-ingreso","dragdrop");
 	nuevaLista.style.display = "block";
 	nuevaColumna.appendChild(nuevaLista);
 	nuevaColumna.appendChild(formulario);
 	contenedor.appendChild(nuevaColumna);
 }
-
 /* drag and drop */
 function empiezaArrastrar(e) {
 	e.dataTransfer.setData("text", this.id);
-	this.classList.remove("animated","bounce");
+	this.classList.add("newStyletarjeta");
+	var newClassdragdop = document.getElementsByClassName("dragdrop");
+	for (var i = 0; i < newClassdragdop.length; i++) {
+		newClassdragdop[i].classList.remove("animated","bounce","pulse");
+	}
 }
-function entraArrastrar(e) {}
-function dejaArrastrar(e) {}
-function arrastrarSobre(e) {e.preventDefault();}
+function arrastrarSobre(e) {
+	e.preventDefault();
+	this.classList.add("animated","pulse");
+}
 function soltar(e) {
 	var idArrastrado = e.dataTransfer.getData("text");
 	var elementoArrastrado = document.getElementById(idArrastrado);
 	var temporal = this.innerHTML;
 	this.insertBefore(elementoArrastrado,this.childNodes[1]);
-	this.classList.add("animated","bounce");
+	this.classList.add("animated","swing");
+	
 }
-function terminaArrastrar(e) {}
+function terminaArrastrar(e) {
+	this.classList.remove("newStyletarjeta");
+}
