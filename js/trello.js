@@ -63,6 +63,7 @@ function crear(){
 	contador++;
 }
 function guardarNewTarjeta(padre,textArea){
+	
 	var nombreTarjeta= document.createElement("div");
 	nombreTarjeta.innerText=textArea.value;
 	padre.insertBefore(nombreTarjeta,padre.lastChild);
@@ -87,13 +88,14 @@ function crearColumna(nuevaLista, formulario) {
 	nuevaColumna.appendChild(formulario);
 	contenedor.appendChild(nuevaColumna);
 }
+
 /* drag and drop */
 function empiezaArrastrar(e) {
 	e.dataTransfer.setData("text", this.id);
 	this.classList.add("newStyletarjeta");
 	var newClassdragdop = document.getElementsByClassName("dragdrop");
 	for (var i = 0; i < newClassdragdop.length; i++) {
-		newClassdragdop[i].classList.remove("animated","bounce","pulse");
+		newClassdragdop[i].classList.remove("animated","swing","pulse");
 	}
 }
 function arrastrarSobre(e) {
@@ -102,9 +104,7 @@ function arrastrarSobre(e) {
 }
 function soltar(e) {
 	var idArrastrado = e.dataTransfer.getData("text");
-	var elementoArrastrado = document.getElementById(idArrastrado);
-	var temporal = this.innerHTML;
-	this.insertBefore(elementoArrastrado,this.childNodes[1]);
+	this.insertBefore(document.getElementById(idArrastrado),this.lastElementChild);
 	this.classList.add("animated","swing");
 	
 }
